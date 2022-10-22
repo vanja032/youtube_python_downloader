@@ -6,9 +6,9 @@ Follow steps in the tutorial to setup the project
 - Open *Console* tab and run **part by part** the next code to get playlist *URLS*
 ### Add JQuery Javascript library to opened page
 ```js
-var jq = document.createElement("script");
-jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js";
-document.getElementsByTagName("head")[0].appendChild(jq);
+var jquery = document.createElement("script");
+jquery.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js";
+document.getElementsByTagName("head")[0].appendChild(jquery);
 ```
 ### Fetch and log video urls
 ```js
