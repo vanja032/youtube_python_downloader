@@ -1,5 +1,5 @@
 #youtube_python_downloader
-# Project for downloading whole Youtube library in MP3 format
+# Project for downloading whole Youtube library in MP3 or MP4 format
 Follow steps in the tutorial to setup the project
 ## Tutorial
 - Open Youtube playlist video library page in Web browser and open *Developer tools*
@@ -21,5 +21,5 @@ $(document).ready(function(){
 });
 ```
 - Copy desired video *URLS* and paste them into urls.txt file in the project
-- Change destination of MP3 to be saved
-- Run the Python script and wait for the process to be completed
+- Change the **destination** of files to be saved
+- Run the Python script for *MP3* or *MP4* Youtube video download and wait for the process to be completed
