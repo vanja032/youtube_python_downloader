@@ -8,7 +8,7 @@ for url in urls:
         print(url)
         yt = YouTube(url)
         video = yt.streams.filter(only_audio=True).first()
-        destination = "C:/Users/Vanja Sretenovic/Desktop/NovePesme"
+        destination = "<destination path>"
         out_file = video.download(output_path=destination)
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
