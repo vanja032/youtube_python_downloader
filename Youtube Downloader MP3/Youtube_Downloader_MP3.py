@@ -19,7 +19,7 @@ for url in urls:
             base, ext = os.path.splitext(out_file)
             new_file = base + format
             os.rename(out_file, new_file)
-            print("Finished")
+            print("Finished download " + yt.title)
         else:
             print("File exist!")
     except:
