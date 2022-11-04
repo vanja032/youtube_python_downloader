@@ -16,8 +16,13 @@ for url in urls:
         if not exists(destination + "/" + yt.title + format):
             video = yt.streams.get_highest_resolution()
             out_file = video.download(output_path=destination)
-            print("Finished download " + yt.title)
+            print("Finished")
         else:
             print("File exist!")
     except:
+        try:
+            os.remove(out_file)
+            print("Removed " + out_file)
+        except:
+            pass
         continue
