@@ -17,7 +17,10 @@ for url in urls:
         print(yt.title)
         if not exists(destination + "/" + str(number) + " " + yt.title + format):
             video = yt.streams.get_highest_resolution()
-            out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title)
+            if "/" in yt.title:
+                out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title.replace("/", "-"))
+            else:
+                out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title)
             print("Finished")
         else:
             print("File exist!")
