@@ -8,14 +8,16 @@ urls = file.read().split("\n")
 format = ".mp4"
 destination = "<destination path>"
 
+number = 0
 for url in urls:
+    number += 1
     try:
         print(url)
         yt = YouTube(url)
         print(yt.title)
-        if not exists(destination + "/" + yt.title + format):
+        if not exists(destination + "/" + str(number) + yt.title + format):
             video = yt.streams.get_highest_resolution()
-            out_file = video.download(output_path=destination)
+            out_file = video.download(output_path=destination, filename=str(number) + yt.title)
             print("Finished")
         else:
             print("File exist!")
