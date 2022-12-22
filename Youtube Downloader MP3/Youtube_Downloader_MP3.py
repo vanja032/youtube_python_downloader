@@ -17,7 +17,10 @@ for url in urls:
         print(yt.title)
         if not exists(destination + "/" + str(number) + " " + yt.title + format):
             video = yt.streams.filter(only_audio=True).first()
-            out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title)
+            if "/" in yt.title:
+                out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title.replace("/", "-"))
+            else:
+                out_file = video.download(output_path=destination, filename=str(number) + " " + yt.title)
             base, ext = os.path.splitext(out_file)
             new_file = base + format
             os.rename(out_file, new_file)
