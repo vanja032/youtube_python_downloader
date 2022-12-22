@@ -8,14 +8,16 @@ urls = file.read().split("\n")
 format = ".mp3"
 destination = "<destination path>"
 
+number = 0
 for url in urls:
+    number += 1
     try:
         print(url)
         yt = YouTube(url)
         print(yt.title)
-        if not exists(destination + "/" + yt.title + format):
+        if not exists(destination + "/" + str(number) + yt.title + format):
             video = yt.streams.filter(only_audio=True).first()
-            out_file = video.download(output_path=destination)
+            out_file = video.download(output_path=destination, filename=str(number) + yt.title)
             base, ext = os.path.splitext(out_file)
             new_file = base + format
             os.rename(out_file, new_file)
@@ -27,5 +29,6 @@ for url in urls:
             os.remove(out_file)
             print("Removed " + out_file)
         except:
+            print("Error")
             pass
         continue
