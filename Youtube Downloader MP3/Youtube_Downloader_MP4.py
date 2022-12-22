@@ -12,7 +12,7 @@ number = 0
 for url in urls:
     number += 1
     try:
-        print(url)
+        print("[" + str(number) + "]" + " " + url)
         yt = YouTube(url)
         print(yt.title)
         if not exists(destination + "/" + str(number) + yt.title + format):
